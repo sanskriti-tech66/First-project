@@ -6,6 +6,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 from api.routes import chat, session, faq, health
+from database.db import engine, Base
+from database import models  # noqa: F401 ensures models registered on Base
 
 logging.basicConfig(
     level=logging.INFO,
@@ -30,6 +32,11 @@ app.include_router(chat.router, prefix="/api/chat", tags=["Chat"])
 app.include_router(session.router, prefix="/api/session", tags=["Session"])
 app.include_router(faq.router, prefix="/api/faqs", tags=["FAQs"])
 app.include_router(health.router, prefix="/api/health", tags=["Health"])
+
+@app.on_event("startup")
+async def on_startup():
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
