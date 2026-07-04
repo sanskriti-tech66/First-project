@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kiko Chatbot</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <div id="chat-container">
+
+    <div id="header">
+      <div id="avatar-ring">
+        <div id="avatar">🤖</div>
+      </div>
+      <div id="header-info">
+        <div id="header-name">Kiko</div>
+        <div id="header-status">
+          <span id="status-dot"></span>
+          <span id="status-text">Online</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="messages">
+      <div class="date-sep">Today</div>
+    </div>
+
+    <div id="input-row">
+      <input id="msg-input" type="text" placeholder="Message Kiko…" autocomplete="off" />
+      <button id="send-btn" aria-label="Send">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# env
+env/
+venv/
+.venv/
+*.env
+.env
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+
+# db
+database/*.db
+*.sqlite3
+
+# os/editor
+.DS_Store
+.vscode/
+.idea/
+
+# logs
+*.log
